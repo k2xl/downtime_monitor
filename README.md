@@ -27,7 +27,7 @@ monitors:
         - engineering_channel
         - random_channel
   myothersite:
-      name: "Quad Web (Dev)"
+      name: "Google"
       url: "http://google.com"
       ignore_hours: [3,4,5,6,7,8] # ignore 3AM-8AM
       on_error:
