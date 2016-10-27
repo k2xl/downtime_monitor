@@ -96,4 +96,5 @@ def pretty_date(delta):
     return ', '.join(dhms[start:end+1])
 
 if __name__ == "__main__":
+    print("Starting monitoring")
     run()
