@@ -33,5 +33,12 @@ monitors:
       on_error:
         - engineering_channel
 ```
+# Install it
+`pip install -r requirements.txt`
+
+Or use docker container attached
+
 # Run it
 `python run.py`
+or with docker container
+`docker-compose up -d`
