@@ -13,7 +13,7 @@ triggers:
   random_slack_channel:
       type: "slack" # currently only type supported
       channel: "#random"
-      url: "<url>"
+      url: "<url>" # url given from slack webhooks
   engineering_channel:
       type: "slack"
       channel: "#engineering"
