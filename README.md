@@ -32,3 +32,6 @@ monitors:
       ignore_hours: [3,4,5,6,7,8] # ignore 3AM-8AM
       on_error:
         - engineering_channel
+
+# Run it
+`python run.py`
