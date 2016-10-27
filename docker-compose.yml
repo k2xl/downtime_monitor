@@ -1,0 +1,6 @@
+monitor:
+  build: networkmonitor
+  net: host
+  volumes:
+    - ./run.py:/run.py
+    - ./config.yml:/config.yml
