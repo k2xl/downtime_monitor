@@ -28,7 +28,7 @@ def cycle_actions(actions, username, type, msg):
 def on_error(reason, type, item):
     global data
     global bad_sites
-    msg = "<%s|%s> is unavailable! %s"%(item["url"], item["name"], reason)
+    msg = "<%s|%s> is unavailable!\n%s"%(item["url"], item["name"], reason)
     now = datetime.now()
     if "ignore_hours" in item and now.hour in item["ignore_hours"]:
         print("Ignoring errors for %s because they occured within range of ignore_hours"%item['name'])
@@ -38,7 +38,7 @@ def on_error(reason, type, item):
         bad_sites[item["url"]]= {"origin":now, "last_alarm":now}
     else:
         downtime = datetime.now()-bad_sites[item["url"]]["origin"]
-        msg += " - Has been down for %s"%pretty_date(downtime)
+        msg += "\nHas been down for %s"%pretty_date(downtime)
 
     time_since_alarm = now-bad_sites[item["url"]]["last_alarm"]
     frequency = item.get("trigger_frequency", data["trigger_frequency"])
