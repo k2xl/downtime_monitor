@@ -23,6 +23,7 @@ def cycle_actions(actions, username, type, msg):
     global data
     for action in actions:
         if data["triggers"][action]["type"] == "slack":
+            print("Sending slack %s"%msg)
             slack(data["triggers"][action]["url"], data["triggers"][action]["channel"], username, type, msg)
 
 def on_error(reason, type, item):
@@ -52,9 +53,11 @@ def ping(key):
     while True:
         try:
             res = requests.get(item["url"], timeout=3)
+            print("%s response: "%item["url"])
             if res.status_code == 200:
                 #  check if we are back to normal
                 if item["url"] in bad_sites:
+                    print("Back to normal")
                     downtime = datetime.now()-bad_sites[item["url"]]["origin"]
                     msg = "%s is back (after %s of downtime)"%(item["name"], pretty_date(downtime))
                     cycle_actions(item["on_error"], item['name'], ":innocent:", msg)
