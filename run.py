@@ -53,7 +53,7 @@ def ping(key):
     while True:
         try:
             res = requests.get(item["url"], timeout=3)
-            print("%s response: "%item["url"])
+            print("%s response: %s"%(item["url"], res.status_code))
             if res.status_code == 200:
                 #  check if we are back to normal
                 if item["url"] in bad_sites:
