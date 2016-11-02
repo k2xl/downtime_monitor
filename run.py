@@ -67,6 +67,7 @@ def ping(key):
         except requests.exceptions.Timeout as e:
             on_error("Timed out", "timeout", item)
         except Exception as e:
+            print("Exception ",e)
             on_error("Unknown Internal Error", "internal_error", item)
         except KeyboardInterrupt:
             print("keyboard interrupt")
