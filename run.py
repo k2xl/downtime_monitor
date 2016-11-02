@@ -60,7 +60,7 @@ def ping(key):
                     print("Back to normal")
                     downtime = datetime.now()-bad_sites[item["url"]]["origin"]
                     msg = "%s is back (after %s of downtime)"%(item["name"], pretty_date(downtime))
-                    cycle_actions(item["on_error"], item['name'], ":innocent:", msg)
+                    cycle_actions(item["on_error"], item['name'], "OK", msg)
                     del bad_sites[item["url"]]
             else:
                 on_error("Status code %s"%res.status_code, "bad_status", item)
