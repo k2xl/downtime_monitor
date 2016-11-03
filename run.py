@@ -10,13 +10,14 @@ data = {}
 bad_sites = {}
 
 slack_icon_mapping = {
+    "OK": ":innocent",
     "internal_error":":interrobang:",
     "timeout":":timer_clock:",
     "bad_status":":skull_and_crossbones:"
 }
 
 def slack(url, channel, username, type, message):
-    #print(username, type, message)
+    print(username, type, message)
     requests.post(url, json={"channel": channel, "icon_emoji": slack_icon_mapping[type], "username": "Monitoring: %s"%username, "text": message})
 
 def cycle_actions(actions, username, type, msg):
